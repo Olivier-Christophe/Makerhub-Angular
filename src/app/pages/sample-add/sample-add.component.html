@@ -1,0 +1,38 @@
+<body>
+    
+
+<form [formGroup]="fg" (ngSubmit)="submit()">
+    <p>
+        
+    </p>
+    <div>
+        <mat-form-field>
+            <mat-label>Auteur</mat-label>
+            <input formControlName="auteur"  matInput placeholder="veuillez indiquer l'Auteur du sample">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Titre</mat-label>
+            <input formControlName="titre" required matInput placeholder="veuillez donner un titre à votre sample">
+          </mat-form-field>
+    </div>
+    <div>
+        <input type="file" formControlName="file" (change)="tranformToBytes($event)" >
+    </div>
+    <hr />
+
+
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Categories</mat-label>
+            <mat-select multiple formControlName="categories">
+                <mat-option [value]="category.categoryId" *ngFor="let category of categories"> {{category.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <button type="submit" mat-button mat-flat-button color="primary" [disabled]="fg.invalid"> sauvegarder </button>
+    </div>
+</form>
+</body>

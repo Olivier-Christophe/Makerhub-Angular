@@ -1,0 +1,13 @@
+<p>Liste des categories</p>
+
+
+<div>
+    <ul>
+        <li><select multiple formControlName="categories">
+                <option [value]="category.name" *ngFor="let category of categories">{{category.name}}
+                    <button (click)="deleteCategory(category.CategoryId)"></button> </option>
+            </select></li >
+            <div *ngFor="let c of categories"><li *ngFor="let result of c.results">{{result.titre}}</li></div>
+    </ul>
+
+</div>

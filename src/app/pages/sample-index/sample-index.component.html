@@ -1,0 +1,45 @@
+<h1>play</h1>
+
+<body>
+
+
+
+<!-- <ul>
+    <li *ngFor="let sample of getSamplesWithFilter()">
+       Auteur:  {{sample.auteur}} - Name:{{sample.titre}} - Category: <span *ngFor="let c of sample.categories"> {{c}} - </span>
+      
+       <audio controls >  
+        <source  src="http://localhost:64880{{sample.url}}">
+    </audio>
+      
+    </li>
+</ul> -->
+<label for ="search"> Recherche :</label>
+<input type="text" [(ngModel)]="keyword" id="search">
+
+<table>
+    <caption>Liste de Samples</caption>
+    <thead>
+      <tr>
+        <th scope="col">Auteur</th>
+        <th scope="col">Name</th>
+        <th scope="col">Categories</th>
+     
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let sample of getSamplesWithFilter();let pair = even" >
+          <th appSurligner [ngClass]="{edit:pair}" scope="row">{{sample.auteur}}</th>
+          <td appSurligner [ngClass]="{edit:pair}" >{{sample.titre}}</td>
+          <td appSurligner [ngClass]="{edit:pair}"><span *ngFor="let c of sample.categories"> {{c}} -</span> </td>
+          <audio controls >  
+            <source  src="http://localhost:64880{{sample.url}}">
+        </audio> <button mat-raised-button color="primary"(click)="deleteSample(sample.sampleId)">Delete</button> 
+       
+        </tr>
+       
+   
+      </tbody>
+
+
+

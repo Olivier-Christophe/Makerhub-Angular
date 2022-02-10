@@ -1,0 +1,7 @@
+<form [formGroup]="fg" (ngSubmit)="submit()">
+    <div>
+        <label>Nom de la categorie</label>
+        <input formControlName="name" type="text" placeholder="veuillez entrer une nouvelle categorie">
+    </div>
+    <button [disabled]="fg.invalid"> sauvegarder </button>
+</form>
